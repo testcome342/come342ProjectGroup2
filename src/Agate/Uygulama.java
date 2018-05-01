@@ -1,13 +1,17 @@
 package Agate;
 
+import Agate.help.Database;
 import Agate.help.Utils;
-import java.util.Scanner;
+import Agate.help.ScanHelper;
+import Agate.UI.AddNewCampaignUI;
+import Agate.UI.AddNewClientUI;
+import Agate.UI.AddNewMemberStaffUI;
+import Agate.UI.AssignStaffOnCampaignUI;
 
 public class Uygulama {
 
-
     public static void main(String[] args) {
-
+        Database.init();
         int choice;
 
         while(true) {
@@ -27,25 +31,25 @@ public class Uygulama {
             Utils.print("|     999- Exit                                 |");
             Utils.printLine(49);
 
-            Utils.print("Enter a number=> ");
-            choice = new Scanner(System.in).nextInt();
+            Utils.print("Enter a number=> ", true);
+            choice = ScanHelper.scanInt();
             Utils.printLine(49);
             switch(choice) {
 
                 case 1:
-                    Utils.print("|          =>Start add a new client<=           |");
+                    AddNewClientUI.getInstance();
                     break;
                 case 2:
-                    Utils.print("add a new campaign");
+                    AddNewCampaignUI.getInstance();
                     break;
                 case 5:
-                    Utils.print("assign staff to work on a campaign");
-                    break;
-                case 10:
-                    Utils.print("add a new advert to a campaign; record completion of an advert");
+                    AssignStaffOnCampaignUI.getInstance();
                     break;
                 case 11:
                     Utils.print("add a new advert to a campaign");
+                    break;
+                case 12:
+                    AddNewMemberStaffUI.getInstance();
                     break;
                 case 999:
                     Utils.print("exit");
@@ -55,6 +59,7 @@ public class Uygulama {
                     Utils.print("error, try enter a number");
                     break;
             }
+            Utils.printRow(40);
         }
 
     }

@@ -6,6 +6,15 @@ public class Utils {
         System.out.println(message);
     }
 
+    public static void print(String message, boolean isNotNewLine) {
+        if(isNotNewLine) {
+            System.out.print(message);
+        } else {
+            System.out.println(message);
+        }
+
+    }
+
     public static void printLine(int number) {
         if(number != 0) {
             for(int i = 0;i < number;i++) {
@@ -20,4 +29,5 @@ public class Utils {
             System.out.println("");
         }
     }
+
 }
